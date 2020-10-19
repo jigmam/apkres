@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ventas\n    </ion-title>\n    <ion-button  color=\"black\" slot=\"end\"  (click)=\"Report()\">Reportar Ventas</ion-button>\n  </ion-toolbar>\n  <ion-item>\n    <ion-datetime [(ngModel)]=\"date1\" name=\"date1\" displayFormat=\"D MMM YYYY\" placeholder=\"Fecha Inicio\" ></ion-datetime>\n  </ion-item>\n  \n  <ion-item>\n    <ion-datetime [(ngModel)]=\"date2\" name=\"date2\" displayFormat=\"D MMM YYYY\" placeholder=\"Fecha Final\" ></ion-datetime>\n  </ion-item>\n  <ion-button (click)=\"searchDate()\">Buscar Ventas</ion-button>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">  \n  <ion-grid>\n    \n   \n    <ion-card  *ngFor=\"let item of items\"  (click)=\"itemSelected(item)\"   button=\"true\"> \n      \n      <ion-card-header>\n        <ion-card-title color=\"black\">{{item.Nombre}}\n          <ion-icon color=\"danger\" (click)=deleteVenta(item) name=\"close-circle-outline\"></ion-icon>\n        </ion-card-title>\n        \n      </ion-card-header>\n    \n      <ion-card-content >\n        <ion-item>\n          <ion-label>Cantidad:</ion-label>\n          <ion-input  [(ngModel)]=\"item.Cant\" name=\"{{item.Cant}}\" ></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label>Precio:</ion-label>\n          <ion-input  [(ngModel)]=\"item.PrecioVenta\"  name=\"{{item.PrecioVenta}}\"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label>Fecha:</ion-label>\n          <ion-datetime displayFormat=\"DD/MM/YYYY\" value=\"{{item.Fecha}}\" ></ion-datetime>\n          \n        </ion-item>\n        \n      </ion-card-content>\n    </ion-card>\n     \n      \n\n  </ion-grid>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ventas\n    </ion-title>\n    <ion-button  color=\"black\" slot=\"end\"  (click)=\"Report()\">Reportar Ventas</ion-button>\n  </ion-toolbar>\n  <ion-item>\n    <ion-datetime [(ngModel)]=\"date1\" name=\"date1\" displayFormat=\"D MMM YYYY\" placeholder=\"Fecha Inicio\" ></ion-datetime>\n  </ion-item>\n  \n  <ion-item>\n    <ion-datetime [(ngModel)]=\"date2\" name=\"date2\" displayFormat=\"D MMM YYYY\" placeholder=\"Fecha Final\" ></ion-datetime>\n  </ion-item>\n  <ion-button (click)=\"searchDate()\">Buscar Ventas</ion-button>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">  \n  <ion-grid>\n    \n   \n    <ion-card  *ngFor=\"let item of items\"  (click)=\"itemSelected(item)\"   button=\"true\"> \n      \n      <ion-card-header>\n        <ion-card-title color=\"black\">{{item.Nombre}}\n          <ion-icon color=\"danger\" (click)=deleteVenta(item) name=\"close-circle-outline\"></ion-icon>\n        </ion-card-title>\n        \n      </ion-card-header>\n    \n      <ion-card-content >\n        <ion-item>\n          <ion-label>Cantidad:</ion-label>\n          <ion-input  [(ngModel)]=\"item.Cant\" name=\"{{item.Cant}}\" ></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label>Precio:</ion-label>\n          <ion-input  [(ngModel)]=\"item.precioventa\"  name=\"{{item.precioventa}}\"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label>Fecha:</ion-label>\n          <ion-datetime displayFormat=\"DD/MM/YYYY\" value=\"{{item.Fecha}}\" ></ion-datetime>\n          \n        </ion-item>\n        \n      </ion-card-content>\n    </ion-card>\n     \n      \n\n  </ion-grid>\n</ion-content>\n";
     /***/
   },
 
@@ -257,22 +257,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var Tab3Page = /*#__PURE__*/function () {
       function Tab3Page(host, http, modal) {
-        var _this = this;
-
         _classCallCheck(this, Tab3Page);
 
         this.host = host;
         this.http = http;
         this.modal = modal;
-        this.items = [];
-        this.http.get(this.host.getHost() + '/selectVentas').subscribe(function (data) {
-          _this.items = data;
-        });
-        this.date2 = Date();
-        this.date1 = Date();
       }
 
       _createClass(Tab3Page, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.items = [];
+          this.http.get(this.host.getHost() + '/selectVentas').subscribe(function (data) {
+            _this.items = data;
+          });
+          this.date2 = Date();
+          this.date1 = Date();
+        }
+      }, {
         key: "deleteVenta",
         value: function deleteVenta(item) {
           var _this2 = this;

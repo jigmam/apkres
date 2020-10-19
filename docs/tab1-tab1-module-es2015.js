@@ -149,6 +149,8 @@ let Tab1Page = class Tab1Page {
         this.http = http;
         this.modal = modal;
         this.filter = new _shared_material__WEBPACK_IMPORTED_MODULE_6__["material"]();
+    }
+    ngOnInit() {
         this.http.get(this.host.getHost() + '/selectPrima').subscribe(data => {
             this.items = data;
         });

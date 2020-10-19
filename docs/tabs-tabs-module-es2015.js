@@ -193,6 +193,7 @@ let TabsPage = class TabsPage {
                     }, {
                         text: 'Aceptar',
                         handler: () => {
+                            this.host.setHost("");
                             window.location.replace("");
                         }
                     }

@@ -349,6 +349,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "logout",
         value: function logout() {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            var _this2 = this;
+
             var alert;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
@@ -367,6 +369,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       }, {
                         text: 'Aceptar',
                         handler: function handler() {
+                          _this2.host.setHost("");
+
                           window.location.replace("");
                         }
                       }]
@@ -414,7 +418,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var PopoverPage = /*#__PURE__*/function () {
       function PopoverPage(http, host, viewCtrl) {
-        var _this2 = this;
+        var _this3 = this;
 
         _classCallCheck(this, PopoverPage);
 
@@ -425,7 +429,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.Email = "";
         this.Asunto = "";
         this.http.get(this.host.getHost() + '/viewSQL').subscribe(function (data) {
-          _this2["export"] = data;
+          _this3["export"] = data;
         });
       }
 

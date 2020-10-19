@@ -272,20 +272,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var Tab1Page = /*#__PURE__*/function () {
       function Tab1Page(host, http, modal) {
-        var _this = this;
-
         _classCallCheck(this, Tab1Page);
 
         this.host = host;
         this.http = http;
         this.modal = modal;
         this.filter = new _shared_material__WEBPACK_IMPORTED_MODULE_6__["material"]();
-        this.http.get(this.host.getHost() + '/selectPrima').subscribe(function (data) {
-          _this.items = data;
-        });
       }
 
       _createClass(Tab1Page, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.http.get(this.host.getHost() + '/selectPrima').subscribe(function (data) {
+            _this.items = data;
+          });
+        }
+      }, {
         key: "itemSelected",
         value: function itemSelected(item) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {

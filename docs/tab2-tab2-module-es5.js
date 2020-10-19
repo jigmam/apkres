@@ -547,20 +547,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var Tab2Page = /*#__PURE__*/function () {
       function Tab2Page(host, http, modal) {
-        var _this8 = this;
-
         _classCallCheck(this, Tab2Page);
 
         this.host = host;
         this.http = http;
         this.modal = modal;
         this.filter = new _shared_material__WEBPACK_IMPORTED_MODULE_6__["material"]();
-        this.http.get(this.host.getHost() + '/selectElabora').subscribe(function (data) {
-          _this8.items = data;
-        });
       }
 
       _createClass(Tab2Page, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this8 = this;
+
+          this.http.get(this.host.getHost() + '/selectElabora').subscribe(function (data) {
+            _this8.items = data;
+          });
+        }
+      }, {
         key: "itemSelected",
         value: function itemSelected(item) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {

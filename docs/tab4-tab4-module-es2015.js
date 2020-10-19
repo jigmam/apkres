@@ -140,6 +140,8 @@ let Tab4Page = class Tab4Page {
         this.http = http;
         this.modal = modal;
         this.filter = new _shared_material__WEBPACK_IMPORTED_MODULE_6__["material"]();
+    }
+    ngOnInit() {
         this.http.get(this.host.getHost() + '/DisponibilidadAlmacen').subscribe(data => {
             this.items = data;
         });
