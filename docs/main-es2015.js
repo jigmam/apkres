@@ -270,7 +270,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-app>\n\n    <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<ion-app>\n    \n    <ion-router-outlet></ion-router-outlet>\n    \n\n    \n</ion-app>\n");
 
 /***/ }),
 
@@ -283,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  [fullscreen]=\"true\">\n  <ion-header> \n      \n    <img  class=\"center\" width=\"30%\"height=\"100%\" src=\"../../assets/alg.png\">\n  \n  </ion-header>\n  <form   >\n    <ion-item><ion-label>Username:</ion-label>\n      <ion-input type=\"text\"  [(ngModel)]=\"user.name\" name=\"name\"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password:</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"user.pass\" name=\"pass\"></ion-input>\n    </ion-item>\n    <ion-button  (click)=\"login(user)\" shape=\"round\"  color=\"secondary\" expand=\"full\">Login</ion-button>\n  </form>\n \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  [fullscreen]=\"true\">\n  <ion-header> \n      \n    <img  class=\"center\" width=\"30%\"height=\"100%\" src=\"https://jigmam.github.io/apkres/assets/alg.png\">\n  \n  </ion-header>\n  <form   >\n    <ion-item><ion-label>Username:</ion-label>\n      <ion-input type=\"text\"  [(ngModel)]=\"user.name\" name=\"name\"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password:</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"user.pass\" name=\"pass\"></ion-input>\n    </ion-item>\n    <ion-button  (click)=\"login(user)\" shape=\"round\"  color=\"secondary\" expand=\"full\">Login</ion-button>\n  </form>\n \n</ion-content>\n");
 
 /***/ }),
 
@@ -495,7 +495,7 @@ let ConfigService = class ConfigService {
     constructor(http, platform) {
         this.http = http;
         this.platform = platform;
-        this.localhost = "http://127.0.0.1:5001/";
+        this.localhost = "https://resapk.herokuapp.com/";
     }
     serHost() {
         // this.http.get<any>('http://127.0.0.1:5000/').subscribe(data => {
@@ -507,7 +507,7 @@ let ConfigService = class ConfigService {
         return this.localhost;
     }
     setHost(user_ID) {
-        this.localhost = "http://127.0.0.1:5001/";
+        this.localhost = "https://resapk.herokuapp.com/";
         this.localhost = this.localhost + user_ID;
     }
 };
