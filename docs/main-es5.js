@@ -152,7 +152,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  [fullscreen]=\"true\">\n  <ion-header> \n      \n    <img  class=\"center\" width=\"30%\"height=\"100%\" src=\"https://jigmam.github.io/apkres/assets/alg.png\">\n  \n  </ion-header>\n  <form   >\n    <ion-item><ion-label>Username:</ion-label>\n      <ion-input type=\"text\"  [(ngModel)]=\"user.name\" name=\"name\"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password:</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"user.pass\" name=\"pass\"></ion-input>\n    </ion-item>\n    <ion-button  (click)=\"login(user)\" shape=\"round\"  color=\"secondary\" expand=\"full\">Login</ion-button>\n  </form>\n \n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  [fullscreen]=\"true\">\n  <ion-header> \n      \n    <img  class=\"center\" width=\"30%\"height=\"100%\" src=\"https://jigmam.github.io/apkres/assets/alg.png\">\n  \n  </ion-header>\n  <form   >\n    <ion-item><ion-label>Username:</ion-label>\n      <ion-input type=\"text\"  [(ngModel)]=\"user.name\" name=\"name\"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password:</ion-label>\n    <ion-input type=\"text\" [(ngModel)]=\"user.pass\" name=\"pass\"></ion-input>\n    </ion-item>\n    <ion-button  (click)=\"login(user)\" shape=\"round\"  color=\"secondary\" expand=\"full\">Login</ion-button>\n    <ion-progress-bar type=\"indeterminate\" *ngIf=\"showLoader\"></ion-progress-bar>\n  </form>\n \n</ion-content>\n";
     /***/
   },
 
@@ -706,6 +706,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LoginPage, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          this.showLoader = false;
           this.user = {
             name: "",
             pass: ""
@@ -716,8 +717,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function login(user) {
           var _this2 = this;
 
+          this.showLoader = true;
           this.http.post(this.host.getHost() + '/authUser', user).subscribe(function (data) {
             console.log(data);
+            _this2.showLoader = false;
 
             if (data.length > 0) {
               _this2.host.setHost(data[0].ID);

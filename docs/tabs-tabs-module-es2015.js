@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n  <ion-tabs> \n    \n    <ion-tab-bar slot=\"top\">      \n      <ion-tab-button tab=\"tab1\">\n        <ion-icon name=\"basket\"></ion-icon>\n\n        \n        <ion-label>Materiales</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"tab2\">\n        <ion-icon name=\"newspaper-sharp\"></ion-icon>\n        <ion-label>Elaborados</ion-label>\n      </ion-tab-button>\n      \n      <ion-tab-button tab=\"tab3\">\n        <ion-icon name=\"cash-outline\"></ion-icon>\n        <ion-label>Ventas</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"tab4\">\n        <ion-icon name=\"file-tray-stacked-outline\"></ion-icon>\n        <ion-label>Almacen</ion-label>\n      </ion-tab-button>\n      \n      \n\n      <ion-tab-button (click) = \"viewPopover()\">\n        <ion-icon name=\"document-attach-outline\"></ion-icon>\n        <ion-label> Export file</ion-label>\n      </ion-tab-button>\n        \n      <ion-tab-button  (click)=\"logout()\" >\n        <ion-icon name=\"log-out-outline\"></ion-icon>\n        <ion-label>logOut</ion-label>\n      </ion-tab-button >\n      \n    </ion-tab-bar>\n    <ion-footer color=\"black\">\n      \n      <img class=\"center\" width=\"100em\" height=\"100%\" src=\"https://jigmam.github.io/apkres/assets/alg.png\">\n    </ion-footer>\n  </ion-tabs>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n  <ion-tabs> \n    \n    <ion-tab-bar slot=\"top\">      \n      <ion-tab-button tab=\"tab1\">\n        <ion-icon name=\"basket\"></ion-icon>\n\n        \n        <ion-label>Materiales</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"tab2\">\n        <ion-icon name=\"newspaper-sharp\"></ion-icon>\n        <ion-label>Elaborados</ion-label>\n      </ion-tab-button>\n      \n      <ion-tab-button tab=\"tab3\">\n        <ion-icon name=\"cash-outline\"></ion-icon>\n        <ion-label>Ventas</ion-label>\n      </ion-tab-button>\n\n      <ion-tab-button tab=\"tab4\">\n        <ion-icon name=\"file-tray-stacked-outline\"></ion-icon>\n        <ion-label>Almacen</ion-label>\n      </ion-tab-button>\n      \n      \n\n      <ion-tab-button (click) = \"viewPopover()\">\n        <ion-icon name=\"document-attach-outline\"></ion-icon>\n        <ion-label> Export file</ion-label>\n      </ion-tab-button>\n        \n      <ion-tab-button  (click)=\"logout()\" >\n        <ion-icon name=\"log-out-outline\"></ion-icon>\n        <ion-label>logOut</ion-label>\n      </ion-tab-button >\n      \n    </ion-tab-bar>\n    <ion-footer color=\"black\">\n      \n      <img class=\"center\" width=\"75em\" height=\"100%\" src=\"https://jigmam.github.io/apkres/assets/alg.png\">\n    </ion-footer>\n  </ion-tabs>\n");
 
 /***/ }),
 
@@ -167,7 +167,13 @@ let TabsPage = class TabsPage {
         this.route.queryParams.subscribe(params => {
             this.param1 = params['userID'];
         });
-        this.host.setHost(this.param1);
+        if (this.param1) {
+            this.host.setHost(this.param1);
+        }
+        else {
+            this.host.setHost("0");
+            window.location.replace("");
+        }
     }
     viewPopover() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
