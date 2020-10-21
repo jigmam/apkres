@@ -535,13 +535,13 @@ let DetailPrimaPage = class DetailPrimaPage {
         this.Nombre = '';
         if (params.data.items != null) {
             this.selectItem = params.data.items;
+            this.http.post(this.host.getHost() + '/historycost', this.selectItem).subscribe(data => {
+                this.items = data;
+            });
         }
         else {
             this.selectItem = { Id: null, Nombre: "", Precio: 0, Unidad: "U" };
         }
-        this.http.post(this.host.getHost() + '/historycost', this.selectItem).subscribe(data => {
-            this.items = data;
-        });
     }
     navBack() {
         this.modal.dismiss();

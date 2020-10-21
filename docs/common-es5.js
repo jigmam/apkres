@@ -833,6 +833,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         if (params.data.items != null) {
           this.selectItem = params.data.items;
+          this.http.post(this.host.getHost() + '/historycost', this.selectItem).subscribe(function (data) {
+            _this.items = data;
+          });
         } else {
           this.selectItem = {
             Id: null,
@@ -841,10 +844,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             Unidad: "U"
           };
         }
-
-        this.http.post(this.host.getHost() + '/historycost', this.selectItem).subscribe(function (data) {
-          _this.items = data;
-        });
       }
 
       _createClass(DetailPrimaPage, [{
