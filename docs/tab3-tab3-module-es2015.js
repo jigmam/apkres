@@ -158,10 +158,8 @@ let Tab3Page = class Tab3Page {
         });
     }
     searchDate() {
-        var dateone = new Date(this.date1);
-        var datetwo = new Date(this.date2);
-        dateone.setDate(dateone.getDate() - 1);
-        datetwo.setDate(datetwo.getDate() + 1);
+        var dateone = this.date1;
+        var datetwo = this.date2;
         this.http.post(this.host.getHost() + '/selectVentasForDate', { date1: dateone, date2: datetwo }).subscribe(data => {
             this.items = data;
         });
